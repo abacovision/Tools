@@ -1,8 +1,6 @@
 import requests
 import sys
 
-
-
 class Fuzz:
     
     
@@ -12,8 +10,7 @@ class Fuzz:
 
     def run(link, wordlist):
         try:
-            truth_paths = list()
-
+            truth_path = list()
             f = open(wordlist, 'r')
             words = f.readlines()
             
@@ -25,9 +22,9 @@ class Fuzz:
                 if response.status_code == 200: truth_path.append(link)
                 
             if len(truth_path) < 0:
-                return truth_paths
+                return truth_path
             else:
-                return -1
+                return ValueError
 
         except Exception as e:
             print(f'Fancy Except: {e}')
