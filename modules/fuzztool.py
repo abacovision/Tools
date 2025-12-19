@@ -1,5 +1,6 @@
 import requests
 import sys
+import time
 
 class Fuzz:
     
@@ -20,7 +21,8 @@ class Fuzz:
                 print(linka)
                 response = requests.get(linka)
                 if response.status_code == 200: truth_path.append(link)
-                
+                time.sleep(1)
+
             if len(truth_path) < 0:
                 return truth_path
             else:
